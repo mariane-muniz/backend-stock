@@ -2,6 +2,7 @@ package com.digital.stock.models;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -52,4 +54,11 @@ public class Stock extends AbstractAudit {
         inverseJoinColumns = @JoinColumn(name = "lot_id")
     )
     private Set<Lot> lots;
+
+    @OneToMany(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY,
+        mappedBy = "stock"
+    )
+    private Set<ReserveDetail> reserveDetails; 
 }
