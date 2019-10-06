@@ -1,0 +1,33 @@
+@local = http://localhost:8080
+@remote = http://192.168.0.6:8080
+@heroku = https://app-backend-stock.herokuapp.com
+@enviroment = {{heroku}}
+
+
+
+###
+# Get available stocks
+GET {{enviroment}}/stocks HTTP/1.1
+
+###
+# Get available profile
+GET {{enviroment}}/profile/stocks HTTP/1.1
+
+###
+# Create a register
+POST {{enviroment}}/stocks HTTP/1.1
+content-type: application/json
+
+{
+    "productCode": "123",
+    "quantity": "2",
+    "reserver": "0",
+    "warehouse": "1052"
+}
+
+
+# POST http://{{enviroment}}/products/search/findOneByCode HTTP/1.1
+
+# {
+#     "code": 1234
+# }

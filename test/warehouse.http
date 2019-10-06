@@ -1,0 +1,21 @@
+@local = http://localhost:8080
+@remote = http://192.168.0.6:8080
+@heroku = https://app-backend-stock.herokuapp.com
+@enviroment = {{heroku}}
+
+
+
+### Get available stocks
+GET {{enviroment}}/warehouses HTTP/1.1
+
+
+### Get a profile
+GET {{enviroment}}/profile/warehouses HTTP/1.1
+
+### Create a register
+POST {{enviroment}}/warehouses HTTP/1.1
+
+{
+    "code": "ware1",
+    "name": "Warehouse test"
+}
